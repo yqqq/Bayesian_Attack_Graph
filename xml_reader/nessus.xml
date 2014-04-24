@@ -1,0 +1,23 @@
+<process>
+<HostProperties>
+<tag name="system-type">general-purpose</tag>
+<tag name="operating-system">FreeBSD 8.3</tag>
+<tag name="host-ip">80.93.62.113</tag>
+<tag name="host-fqdn">www.gdmsh.ru</tag>
+<port>80</port>
+</HostProperties>
+<ReportItem>
+<port>80</port>
+<pluginID>57537</pluginID>
+<risk_factor>High</risk_factor>
+<cpe>cpe:/a:php:php</cpe>
+<cve>CVE-2011-3379</cve>
+<cve>CVE-2011-4566</cve>
+<cve>CVE-2011-4885</cve>
+<cve>CVE-2012-0057</cve>
+<cve>CVE-2012-0781</cve>
+<cve>CVE-2012-0788</cve>
+<cve>CVE-2012-0789</cve>
+</ReportItem>
+</process>
+
