@@ -8,7 +8,7 @@ def xmlpython(xml1,n):
     xml2=open(xml1).read()
     G=create_graph(xml2,n)  
     return G
-
+#This Place should have any change
 def create_graph(xml1,n):
     G=nx.DiGraph()      #创建有向图      
     H=nx.DiGraph()      #创建存储父节点的图
