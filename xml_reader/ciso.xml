@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<Report>
+<Process>
+<HostProperties>
+<host-ip>195.208.0.141</host-ip>
+<host-fqdn>www.makeyev.ru</host-fqdn>
+</HostProperties>
+<ReportItem>
+<port>80</port>
+<pluginID>57537</pluginID>
+<pluginName>PHP &lt; 5.3.9 Multiple Vulnerabilities</pluginName>
+<pluginFamily>CGI abuses</pluginFamily>
+<cpe>cpe:/a:php:php</cpe>
+<cve>CVE-2011-3379</cve>
+<cve>CVE-2011-4566</cve>
+<cve>CVE-2011-4885</cve>
+<cve>CVE-2012-0057</cve>
+<cve>CVE-2012-0781</cve>
+<cve>CVE-2012-0788</cve>
+<cve>CVE-2012-0789</cve>
+<cvss_base_score>7.5</cvss_base_score>
+<cvss_temporal_score>6.2</cvss_temporal_score>
+<cvss_temporal_vector>CVSS2#E:F/RL:OF/RC:C</cvss_temporal_vector>
+<cvss_vector>CVSS2#AV:N/AC:L/Au:N/C:P/I:P/A:P</cvss_vector>
+<exploit_available>true</exploit_available>
+<exploitability_ease>Exploits are available</exploitability_ease>
+<risk_factor>High</risk_factor>
+<attack_pre_condition>
+<access_type>remote</access_type>
+<prilvage_require>root</prilvage_require>
+</attack_pre_condition>
+<attack_post>root access</attack_post>
+</ReportItem>
+<ReportItem>
+<port>80</port>
+<pluginID>58988</pluginID>
+<pluginName>PHP &lt; 5.3.12 / 5.4.2 CGI Query String Code Execution</pluginName>
+<pluginFamily>CGI abuses</pluginFamily>
+<cpe>cpe:/a:php:php</cpe>
+<cve>CVE-2012-1823</cve>
+<cvss_base_score>8.3</cvss_base_score>
+<cvss_temporal_score>7.2</cvss_temporal_score>
+<cvss_temporal_vector>CVSS2#E:ND/RL:OF/RC:C</cvss_temporal_vector>
+<cvss_vector>CVSS2#AV:N/AC:M/Au:N/C:C/I:P/A:P</cvss_vector>
+<exploit_available>true</exploit_available>
+<exploitability_ease>Exploits are available</exploitability_ease>
+<risk_factor>High</risk_factor>
+<attack_pre_condition>
+<access_type>remote</access_type>
+<prilvage_require>root</prilvage_require>
+</attack_pre_condition>
+<attack_post>root access</attack_post>
+</ReportItem>
+<ReportItem>
+<port>80</port>
+<pluginID>58987</pluginID>
+<pluginName>PHP Unsupported Version Detection</pluginName>
+<pluginFamily>CGI abuses</pluginFamily>
+<cvss_base_score>10.0</cvss_base_score>
+<cvss_temporal_score>9.2</cvss_temporal_score>
+<cvss_vector>CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:C</cvss_vector>
+<risk_factor>Critical</risk_factor>
+<attack_pre_condition>
+<access_type>remote</access_type>
+<prilvage_require>root</prilvage_require>
+</attack_pre_condition>
+<attack_post>root access</attack_post>
+</ReportItem>
+<ReportItem>
+<port>80</port>
+<pluginID>48244</pluginID>
+<pluginName>PHP 5.2 &lt; 5.2.14 Multiple Vulnerabilities</pluginName>
+<pluginFamily>CGI abuses</pluginFamily>
+<cpe>cpe:/a:php:php</cpe>
+<cve>CVE-2007-1581</cve>
+<cve>CVE-2010-0397</cve>
+<cve>CVE-2010-1860</cve>
+<cve>CVE-2010-1862</cve>
+<cve>CVE-2010-1864</cve>
+<cve>CVE-2010-2097</cve>
+<cve>CVE-2010-2100</cve>
+<cve>CVE-2010-2101</cve>
+<cve>CVE-2010-2190</cve>
+<cve>CVE-2010-2191</cve>
+<cve>CVE-2010-2225</cve>
+<cve>CVE-2010-2484</cve>
+<cve>CVE-2010-2531</cve>
+<cve>CVE-2010-3065</cve>
+<cvss_base_score>7.5</cvss_base_score>
+<cvss_temporal_score>6.2</cvss_temporal_score>
+<cvss_temporal_vector>CVSS2#E:F/RL:OF/RC:C</cvss_temporal_vector>
+<cvss_vector>CVSS2#AV:N/AC:L/Au:N/C:P/I:P/A:P</cvss_vector>
+<exploit_available>true</exploit_available>
+<exploitability_ease>Exploits are available</exploitability_ease>
+<risk_factor>High</risk_factor>
+<attack_pre_condition>
+<access_type>remote</access_type>
+<prilvage_require>root</prilvage_require>
+</attack_pre_condition>
+<attack_post>user access</attack_post>
+</ReportItem>
+</Process>
+<Process>
+<HostProperties>
+<host-ip>81.91.40.147</host-ip>
+</HostProperties>
+<ReportItem>
+<port>1443</port>
+<pluginID>55976</pluginID>
+<pluginName>Apache HTTP Server Byte Range DoS</pluginName>
+<pluginFamily>Web Servers</pluginFamily>
+<cve>CVE-2011-3192</cve>
+<cvss_base_score>7.8</cvss_base_score>
+<cvss_temporal_score>6.8</cvss_temporal_score>
+<cvss_temporal_vector>CVSS2#E:ND/RL:OF/RC:C</cvss_temporal_vector>
+<cvss_vector>CVSS2#AV:N/AC:L/Au:N/C:N/I:N/A:C</cvss_vector>
+<exploit_available>true</exploit_available>
+<exploitability_ease>Exploits are available</exploitability_ease>
+<risk_factor>High</risk_factor>
+<attack_pre_condition>
+<access_type>remote</access_type>
+<prilvage_require>root</prilvage_require>
+</attack_pre_condition>
+<attack_post>denil of service</attack_post>
+</ReportItem>
+</Process>
+</Report>
