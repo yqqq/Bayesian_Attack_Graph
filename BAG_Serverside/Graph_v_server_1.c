@@ -91,15 +91,12 @@ int main(int argc,char *argv){
     while(1)
     {
         sleep(20);
-        
-        /*
         if((fp=fopen("/home/lovingmage/Desktop/metasploitavevasion-master/Graph.log","a"))>=0)
         {
             t=time(0);
             fprintf(fp,"Im here at %s",asctime(localtime(&log_time)));
             fclose(fp);
             }
-        */
      }
      return 0;
 }
