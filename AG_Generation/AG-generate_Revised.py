@@ -29,52 +29,81 @@ def create_graph(xml1,n):
 
 def post_node(G,H,i,root,n):
     attack_init_node_code=i
-                                                                 #ip2=G.node[i]['host_ip']
+    f=file("Network_link.json")
+    net_link=json.load(f)
+                                                                 		#ip2=G.node[i]['host_ip']
     current_ip=G.node[i]['host_ip']
     current_priv=G.node[i]['prilvage']
-    H.add_node(i,host_ip=current_ip,prilvage=current_priv)       #将自身当做父节点存入H图中
-    for vid1 in root.findall('./vid'):                           #遍历vid元素，查找ip
+    current_connection=net_link[current_ip]
+    
+    '''
+    print current_connection
+    	Test the current string has loaded succesully!
+    '''
+    H.add_node(i,host_ip=current_ip,prilvage=current_priv)       		#将自身当做父节点存入H图中
+    for vid1 in root.findall('./vid'):                           		#遍历vid元素，查找ip
         lenH=H.nodes()
-        if len(lenH)>string.atoi(n)-1:                                         #判断父节点个数是否超过限定    
+        if len(lenH)>string.atoi(n)-1:                                      #判断父节点个数是否超过限定    
             break
-        compare_ip=vid1.get('ip')                                       #获取vid的ip
-        for attack1 in vid1.findall('./attack'):                 #遍历attack元素，查找攻击
-            break_flag=0
-            c=0
-            pr1=attack1.find('./pr').text
-            compare_priv=attack1.find('./post').text
+        compare_ip=vid1.get('ip')                                       	#获取vid的ip
+        ''' 
+        Judge the current_ip in current_connection to guarantee the connection
+        of the current connection
+        '''
+        if (compare_ip in current_connection):
+            '''print "YES IN IT" '''
+            for attack1 in vid1.findall('./attack'):                 		#遍历attack元素，查找攻击
+                break_flag=0
+                c=0
+                pr1=attack1.find('./pr').text
+                compare_priv=attack1.find('./post').text
 
-            for x in H.nodes():                                   #如果后果点在父节点中，就返回
-                if H.node[x]['host_ip']==compare_ip and compare_priv in H.node[x]['prilvage']:
-                    break_flag=1
-                    break
-            if break_flag==1:
-                continue
+                for x in H.nodes():                                   		#如果后果点在父节点中，就返回
+                    if H.node[x]['host_ip']==compare_ip and compare_priv in H.node[x]['prilvage']:
+                        break_flag=1
+                        break
+                if break_flag==1:
+                    continue
+        '''
+            Nodes are already in the Attack Graph,we just establish new attack path
+            Attack edge into the exist edge
+            Start:
+        '''
+                for x in G.nodes():                                   		#如果后果点在G图中，就直接建立边
+                    if G.node[x]['host_ip']==compare_ip and compare_priv in G.node[x]['prilvage']:
+                        G.add_edge(attack_init_node_code,x,pr=pr1)
+                        c=1
+                        break
 
-            for x in G.nodes():                                   #如果后果点在G图中，就直接建立边
-                if G.node[x]['host_ip']==compare_ip and compare_priv in G.node[x]['prilvage']:
-                    G.add_edge(attack_init_node_code,x,pr=pr1)
-                    c=1
-                    break
-
-            if c==1:
-                continue
-            else:
-            
-                if compare_priv=='root':
-                    current_priv=Priv.root_priv
-                elif compare_priv=='user':
-                    current_priv=Priv.user_priv
-                elif compare_priv=='login':
-                    current_priv=Priv.login_priv
-                elif compare_priv=='access':
-                    current_priv=Priv.access_priv
-            
-                G.add_node(i+1,host_ip=compare_ip,prilvage=current_priv)
-                G.add_edge(attack_init_node_code,i+1,pr=pr1)
-                i=i+1
+                if c==1:
+                    continue
+        '''
+            End
+        '''
+        '''
+        If no nodes or edges is exist we establish new nodes into G and new edges
+        into Edges
+        Start:
+        '''
+                else:
                 
-                G=post_node(G,H,i,root,n)
+                    if compare_priv=='root':
+                        current_priv=Priv.root_priv
+                    elif compare_priv=='user':
+                        current_priv=Priv.user_priv
+                    elif compare_priv=='login':
+                        current_priv=Priv.login_priv
+                    elif compare_priv=='access':
+                        current_priv=Priv.access_priv
+                
+                    G.add_node(i+1,host_ip=compare_ip,prilvage=current_priv)
+                    G.add_edge(attack_init_node_code,i+1,pr=pr1)
+                    i=i+1
+                    
+                    G=post_node(G,H,i,root,n)
+        '''
+            End
+        '''
                                     
     H.remove_node(attack_init_node_code)
     return G
@@ -99,10 +128,12 @@ def first_node(G1,root):
     G1.add_node(1,host_ip=attacker_ip,prilvage=attacker_priv)
     return G1
     
-
-if __name__ == '__main__':
+def main(argv):
+    '''
     f=file("Network_link.json")
     net_link=json.load(f)
+    
+    '''
     
     ''' Load Json File of Netork topology & Test all of this is OK
 	Test the json load of network topology is ok for all the 
@@ -124,7 +155,8 @@ if __name__ == '__main__':
 	print test_list[1]
 
     '''	
-    n=raw_input('输入单一路径的最大节点数：')
+    '''n=raw_input('输入单一路径的最大节点数：')'''
+    n=sys.argv[1]
     G=xmlpython('exploit.xml',n)
     
     #way1=raw_input('输入生成G.node的json文件的路径，不包括文件名：')
@@ -142,3 +174,6 @@ if __name__ == '__main__':
     print "生成的 G.edge:"
     print json.dumps(G.edge,sort_keys=True,indent=4)
     
+if __name__ == '__main__':
+
+    main(sys.argv)
