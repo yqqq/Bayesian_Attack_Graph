@@ -104,7 +104,7 @@ def post_node(G,H,i,root,n):
         '''
             End
         '''
-                                    
+    '''Remove all the node of The parent nodes'''                                
     H.remove_node(attack_init_node_code)
     return G
 
