@@ -23,8 +23,6 @@
 /*--------------------------------------------------*/
 
 void init_deamon(void){
-    FILE *fp;
-    time_t log_time;
     int pid;
     int i;
     /*Father exit & hand out the children process to init*/
@@ -33,12 +31,6 @@ void init_deamon(void){
         }
     else if(pid<0){
     /*THIS PLACE SHOULD INSERT LOG HANDLER*/
-    	if((fp=fopen("/home/lovingmage/Desktop/Graph_Error.log","a"))>=0)
-        {
-            log_time=time(0);
-            fprintf(fp,"%s ->INIT DEAMON PROCESS FIRST STEP ERROR.",asctime(localtime(&log_time)));
-            fclose(fp);
-        }
     /*The fork() is erro & need be reported*/
         exit(1);
         }
@@ -51,12 +43,6 @@ void init_deamon(void){
             exit(0);
     else if(pid<0)
     /*THIS PLACE SHOULD INSERT LOG HANDLER*/
-    	if((fp=fopen("/home/lovingmage/Desktop/Graph_Error.log","a"))>=0)
-        {
-            log_time=time(0);
-            fprintf(fp,"%s ->INIT DEAMON PROCESS SECOND STEP ERROR.",asctime(localtime(&log_time)));
-            fclose(fp);
-        }
     /*The fork() is erro & need be reported*/
             exit(1);
     /*Close all the files that opens*/
@@ -66,12 +52,6 @@ void init_deamon(void){
     chdir("/tmp");
     /*Reset the file mask*/
     umask(0);
-    if((fp=fopen("/home/lovingmage/Desktop/Graph.log","a"))>=0)
-        {
-            log_time=time(0);
-            fprintf(fp,"%s ->DEAMON PROCESS INIT SUCESSFULLY.",asctime(localtime(&log_time)));
-            fclose(fp);
-        }
     return;
     }
         
@@ -79,9 +59,6 @@ int main(int argc, char** argv)
 {
     FILE *fp;
     time_t log_time;
-    
-    
-   
     //init_deamon();
 	/*This place is the fork of the program & Then to excute another function*/
 	/*
@@ -100,18 +77,20 @@ int main(int argc, char** argv)
 	waitpid(chpid,&status,0);
 	}
 	---------------------------------------------------------------------------
-    */
-    //while(1)
-    //{
-        //sleep(20);
-        /*
-        if((fp=fopen("/home/lovingmage/Desktop/metasploitavevasion-master/Graph.log","a"))>=0)
+    	*/
+   	/*while(1)
+    	{
+        sleep(20);
+        
+        if((fp=fopen("Graph.log","a"))>=0)
         {
-            t=time(0);
+            log_time=time(0);
             fprintf(fp,"Im here at %s",asctime(localtime(&log_time)));
             fclose(fp);
             }
-        */
+	}
+	*/
+        
         
         /*-----------------------------------/
         /Set init vars of socket connection  /
@@ -124,7 +103,12 @@ int main(int argc, char** argv)
 	    int     n;
 	    /*END of socket addrs init*/
 	    /*Create init socket function*/
+<<<<<<< HEAD
     init_deamon();
+=======
+	    init_deamon();
+	    
+>>>>>>> FETCH_HEAD
 	    if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
 	    //printf("create socket error: %s(errno: %d)\n",strerror(errno),errno);
 	    if((fp=fopen("/home/lovingmage/Desktop/Graph_Error.log","a"))>=0)
@@ -189,6 +173,6 @@ int main(int argc, char** argv)
 	    close(connfd);
 	    }
 
-	    close(listenfd);
+	  close(listenfd);
  	
 }
