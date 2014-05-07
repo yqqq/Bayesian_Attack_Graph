@@ -124,7 +124,7 @@ int main(int argc, char** argv)
 	    int     n;
 	    /*END of socket addrs init*/
 	    /*Create init socket function*/
-	
+    init_deamon();
 	    if( (listenfd = socket(AF_INET, SOCK_STREAM, 0)) == -1 ){
 	    //printf("create socket error: %s(errno: %d)\n",strerror(errno),errno);
 	    if((fp=fopen("/home/lovingmage/Desktop/Graph_Error.log","a"))>=0)
