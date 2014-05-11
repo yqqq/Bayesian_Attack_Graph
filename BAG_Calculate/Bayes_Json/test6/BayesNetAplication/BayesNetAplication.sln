@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BayesNetAplication", "BayesNetAplication.vcxproj", "{F336BDDC-2407-4995-A7B3-ACB0E5D35744}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项目", "解决方案项目", "{2CF80200-5C5D-4B6D-A58A-9BCC07EF8C4F}"
+	ProjectSection(SolutionItems) = preProject
+		BayesNetAplication.vsd = BayesNetAplication.vsd
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F336BDDC-2407-4995-A7B3-ACB0E5D35744}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F336BDDC-2407-4995-A7B3-ACB0E5D35744}.Debug|Win32.Build.0 = Debug|Win32
+		{F336BDDC-2407-4995-A7B3-ACB0E5D35744}.Release|Win32.ActiveCfg = Release|Win32
+		{F336BDDC-2407-4995-A7B3-ACB0E5D35744}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
