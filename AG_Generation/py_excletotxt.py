@@ -12,11 +12,11 @@ files=open('BAGRA.txt','w')
 
 for i1 in range(table.nrows):
     rows=table.row_values(i1)
-    for i2 in range(0,5):
+    for i2 in range(0,6):
         str1=rows[i2]
         files.write(str(str1))
         files.write('\t')
-    files.write('\r\n')
+    files.write(',')
 
 files.close()
 
